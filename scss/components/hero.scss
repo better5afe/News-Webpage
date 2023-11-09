@@ -2,13 +2,54 @@
 @use '../units.scss' as units;
 
 .hero {
+	margin-block: units.rem(32) units.rem(64);
+
+	@media screen and (min-width: utils.$dekstop-viewport) {
+		grid-column: 1/3;
+		margin-block: 0;
+	}
+
+	&__img {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	&__container {
+		margin-block-start: clamp(
+			1.5rem,
+			1.3724489795918366rem + 0.5442176870748299vw,
+			1.75rem
+		);
+
+		@media screen and (min-width: utils.$dekstop-viewport) {
+			display: flex;
+		}
+	}
+
 	&__title {
+		margin-block-end: units.rem(16);
 		font-size: map-get(utils.$fonts, f-h1);
 		color: map-get(utils.$colors, c-dark-blue);
 		line-height: map-get(utils.$l-height, l-h1);
+
+		@media screen and (min-width: utils.$dekstop-viewport) {
+			margin-block-end: 0;
+		}
 	}
 
 	&__description {
+		@media screen and (min-width: utils.$dekstop-viewport) {
+			max-width: units.rem(350);
+		}
+
+		&-text {
+			margin-block-end: clamp(
+				1.5rem,
+				1.340561224489796rem + 0.6802721088435374vw,
+				1.8125rem
+			);
+		}
+
 		&-btn {
 			padding: units.rem(11) units.rem(31);
 			background: map-get(utils.$colors, c-salmon);

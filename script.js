@@ -5,7 +5,6 @@ const nav = document.querySelector('#nav-content');
 const navLinks = document.querySelectorAll('.nav__link');
 
 const openNavHandler = () => {
-	console.log('open nav');
 	openNavBtn.setAttribute('aria-expanded', 'true');
 	nav.classList.add('nav__content--expanded');
 	backdrop.classList.add('nav__shadow--visible')
@@ -14,7 +13,6 @@ const openNavHandler = () => {
 const closeNavHandler = (e) => {
 	e.preventDefault();
 
-	console.log('close nav');
 	openNavBtn.setAttribute('aria-expanded', 'false');
 	nav.classList.remove('nav__content--expanded');
 	backdrop.classList.remove('nav__shadow--visible')

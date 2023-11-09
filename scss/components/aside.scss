@@ -4,7 +4,13 @@
 .aside {
 	padding: clamp(1.5rem, 1.2448979591836735rem + 1.0884353741496597vw, 2rem)
 		clamp(1.3125rem, 1.2168367346938775rem + 0.4081632653061224vw, 1.5rem);
+	margin-block-end: units.rem(64);
 	background: map-get(utils.$colors, c-dark-blue);
+
+	@media screen and (min-width: utils.$dekstop-viewport) {
+		grid-column: 3/-1;
+		margin-block-end: 0;
+	}
 
 	&__title {
 		margin-block-end: units.rem(35);

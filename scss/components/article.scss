@@ -3,14 +3,22 @@
 
 .articles {
 	@media screen and (min-width: utils.$dekstop-viewport) {
-		@include utils.grid(repeat(3, 1fr), auto, units.rem(30));
+		grid-column: 1/-1;
+		grid-template-columns: subgrid;
+		@include utils.flexbox(space-between, center, row);
+		padding-bottom: 0;
+		margin-block-start: units.rem(41);
 	}
 
 	&__article {
-		@include utils.flexbox(space-between, center, row);
+		@include utils.flexbox(flex-start, center, row);
 		width: 100%;
-		background: blue;
+		max-width: units.rem(350);
+		margin-block-end: units.rem(32);
 
+		@media screen and (min-width: utils.$dekstop-viewport) {
+			margin-block-end: 0;
+		}
 
 		&-description {
 			height: 100%;

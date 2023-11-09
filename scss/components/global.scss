@@ -1,4 +1,5 @@
 @use '../utils.scss' as utils;
+@use '../units.scss' as units;
 
 *,
 *::after,
@@ -20,7 +21,6 @@ body {
 	font-family: 'Inter', sans-serif;
 	color: map-get(utils.$colors, c-gray);
 	line-height: map-get(utils.$l-height, l-text);
-	overflow: hidden;
 
 	@media screen and (min-width: utils.$dekstop-viewport) {
 		padding-right: 0;
@@ -28,8 +28,15 @@ body {
 	}
 }
 
+.main {
+	@media screen and (min-width: utils.$dekstop-viewport) {
+		@include utils.grid(repeat(3, 1fr), repeat(3, auto), units.rem(30));
+	}
+}
+
 .wrapper {
 	width: 100%;
 	max-width: utils.$dekstop-viewport;
 	margin: 0 auto;
+	overflow: hidden;
 }

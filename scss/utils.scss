@@ -1,0 +1,60 @@
+$dekstop-viewport: 69.375rem;
+
+$colors: (
+	c-almost-white: #fffdfa,
+	c-dark-blue: #00001a,
+	c-shadow: #00001a79,
+	c-gray: #5e607a,
+	c-salmon: #f15d51,
+	c-silver: #c5c6ce,
+	c-yellow: #e9aa52,
+);
+
+$fonts: (
+	f-text: 0.9375rem,
+	f-h1: clamp(2.5rem, 2.0454545454545454rem + 1.9393939393939394vw, 3.5rem),
+	f-h2: clamp(2rem, 1.7727272727272727rem + 0.9696969696969697vw, 2.5rem),
+	f-h3: 1.25rem,
+	f-h4: 2rem,
+	f-h5: 1.125rem,
+	f-cta-btn: 0.875rem,
+);
+
+$l-height: (
+	l-text: 1.625rem,
+	l-h1: clamp(2.5rem, 2.0454545454545454rem + 1.9393939393939394vw, 3.5rem),
+	l-h2: clamp(2rem, 1.7727272727272727rem + 0.9696969696969697vw, 2.5rem),
+	l-h3-h5-cta: 1.5rem,
+	l-h4: 2rem,
+);
+
+@mixin flexbox($justify-content, $align-items, $flex-direction) {
+	display: flex;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	flex-direction: $flex-direction;
+}
+
+@mixin grid($columns, $rows, $gap) {
+	display: grid;
+	grid-template-columns: $columns;
+	grid-template-rows: $rows;
+	gap: $gap;
+}
+
+@mixin border {
+	border: 1px solid transparent;
+	border-radius: 0.5rem;
+	outline: none;
+	transition: border-color 0.3s;
+}
+
+@mixin border-active {
+	border-color: map-get($colors, c-shadow);
+}
+
+@mixin heading-link {
+	outline: none;
+	text-decoration: none;
+	transition: color 0.3s;
+}

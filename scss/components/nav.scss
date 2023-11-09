@@ -1,0 +1,113 @@
+@use '../utils.scss' as utils;
+@use '../units.scss' as units;
+
+.nav {
+	background: map-get(utils.$colors, c-almost-white);
+
+	&__open,
+	&__close {
+		padding: units.rem(2);
+		background: transparent;
+		@include utils.border;
+		cursor: pointer;
+
+		&:focus {
+			@include utils.border-active;
+		}
+
+		@media screen and (min-width: utils.$dekstop-viewport) {
+			display: none;
+		}
+	}
+
+	&__close {
+		position: fixed;
+		top: units.rem(27);
+		right: units.rem(21);
+	}
+
+	&__content {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		width: units.rem(256);
+		background: map-get(utils.$colors, c-almost-white);
+		transform: translateX(-100%);
+		z-index: 20;
+
+		@media screen and (min-width: utils.$dekstop-viewport) {
+			position: static;
+			height: auto;
+			width: auto;
+			transform: translateX(0);
+		}
+	}
+
+	&__links {
+		margin: units.rem(144) 0 0 units.rem(24);
+		list-style-type: none;
+
+		> li {
+			margin-block-end: units.rem(24);
+		}
+
+		@media screen and (min-width: utils.$dekstop-viewport) {
+			@include utils.flexbox(center, center, row);
+			margin: 0;
+			> li {
+				margin-block-end: 0;
+				margin: 0 units.rem(40) 0 0;
+			}
+		}
+	}
+
+	&__link {
+		@include utils.border;
+		font-size: 1.125rem;
+		color: map-get(utils.$colors, c-dark-blue);
+		text-decoration: none;
+		line-height: 1.5rem;
+
+		&:focus {
+			@include utils.border-active;
+		}
+
+		@media screen and (min-width: utils.$dekstop-viewport) {
+			font-size: 0.9375rem;
+			color: map-get(utils.$colors, c-gray);
+			transition: color 0.3s;
+
+			&:hover,
+			&:focus {
+				color: map-get(utils.$colors, c-salmon);
+				border-color: transparent;
+			}
+		}
+	}
+
+	&__shadow {
+		display: none;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: map-get(utils.$colors, c-shadow);
+		z-index: 10;
+
+		@media screen and (min-width: utils.$dekstop-viewport) {
+			display: none;
+		}
+	}
+
+	&__open[aria-expanded='true'] {
+		.nav__content {
+			transform: translateX(0);
+		}
+
+		.nav__shadow {
+			display: block;
+		}
+	}
+}

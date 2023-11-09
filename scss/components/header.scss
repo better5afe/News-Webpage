@@ -1,0 +1,6 @@
+@use '../utils.scss' as utils;
+
+.header {
+	@include utils.flexbox(space-between, center, row);
+	background-color: blue;
+}

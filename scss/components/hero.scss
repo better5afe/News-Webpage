@@ -1,0 +1,32 @@
+@use '../utils.scss' as utils;
+@use '../units.scss' as units;
+
+.hero {
+	&__title {
+		font-size: map-get(utils.$fonts, f-h1);
+		color: map-get(utils.$colors, c-dark-blue);
+		line-height: map-get(utils.$l-height, l-h1);
+	}
+
+	&__description {
+		&-btn {
+			padding: units.rem(11) units.rem(31);
+			background: map-get(utils.$colors, c-salmon);
+			border: 1px solid map-get(utils.$colors, c-salmon);
+			font-size: map-get(utils.$fonts, f-cta-btn);
+			color: map-get(utils.$colors, c-almost-white);
+			font-weight: 700;
+			line-height: map-get(utils.$l-height, l-h3-h5-cta);
+			letter-spacing: units.rem(4);
+			text-transform: uppercase;
+			cursor: pointer;
+			transition: background-color 0.3s, border-color 0.3s;
+
+			&:hover,
+			&:focus {
+				background-color: map-get(utils.$colors, c-dark-blue);
+				border-color: map-get(utils.$colors, c-dark-blue);
+			}
+		}
+	}
+}
